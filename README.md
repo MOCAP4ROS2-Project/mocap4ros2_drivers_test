@@ -4,4 +4,4 @@ In this repository, the user can find packages to test the mocap4ros2 drivers an
 
 This repository contains:
 
-- mocap4ros2_camera_test: This package will help to test the mocap_camera_composer. The node mocap4ros2_camera_test craete and publish random markers to test the mocap_camera_composer node with the vicon system.
+- mocap4ros2_camera_test: This package will help to test the mocap_camera_composer. The node mocap4ros2_camera_test create and publish random markers to test the mocap_camera_composer node with the vicon system.

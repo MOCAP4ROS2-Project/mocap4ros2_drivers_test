@@ -2,7 +2,7 @@
   <name>mocap4ros2_camera_test</name>
   <version>0.0.1</version>
   <description>
-     This is a ROS2 driver providing data from VICON motion capture systems.
+     This is a ROS2 node that creates random markers to test the drivers from VICON motion capture systems.
   </description>
   <author>Lorena Bajo</author>
   <maintainer email="lorena.bajo@urjc.es">Lorena Bajo</maintainer>

@@ -18,6 +18,10 @@ find_package(tf2_ros REQUIRED)
 find_package(mocap4ros2_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
+include_directories(
+  include
+)
+
 set(dependencies
     rclcpp
     tf2
@@ -25,25 +29,12 @@ set(dependencies
     mocap4ros2_msgs
     geometry_msgs
 )
-
-include_directories(include)
-add_library(${PROJECT_NAME} SHARED src/mocap4ros2_camera_test.cpp)
-ament_target_dependencies(${PROJECT_NAME} ${dependencies})
+add_executable(mocap4ros2_camera_test src/mocap4ros2_camera_test.cpp)
+ament_target_dependencies(mocap4ros2_camera_test ${dependencies})
 
 install(TARGETS
-  ${PROJECT_NAME}
-  mocap4ros2_camera_test
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION lib/${PROJECT_NAME}
+mocap4ros2_camera_test
+  DESTINATION lib/${PROJECT_NAME}
 )
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  ament_lint_auto_find_test_dependencies()
-endif()
-
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
-ament_export_dependencies(${dependencies})
 ament_package()

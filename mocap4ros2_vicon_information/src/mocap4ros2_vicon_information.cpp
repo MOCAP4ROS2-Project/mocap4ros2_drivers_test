@@ -59,7 +59,7 @@ public:
   {
     RCLCPP_WARN(this->get_logger(), "MARKER: [%s, %d]. At time [sec: %d,  nanosec: %d]", msg->header.frame_id, msg->frame_number, msg->header.stamp.sec,msg->header.stamp.nanosec);
 
-    for(int i = 0; i <= sizeof(msg->markers); i++){
+    for(unsigned int i = 0; i <= msg->markers.size(); i++){
         RCLCPP_INFO(this->get_logger(), "Translation [x: %d,  y: %d,  z: %d]", msg->markers[i].translation.x,  msg->markers[i].translation.y,  msg->markers[i].translation.z);
 
     }

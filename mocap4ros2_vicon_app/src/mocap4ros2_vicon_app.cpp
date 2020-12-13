@@ -25,8 +25,8 @@
 #include <time.h>
 
 #include "rclcpp/rclcpp.hpp"
-#include "mocap4ros2_msgs/msg/marker.hpp"
-#include "mocap4ros2_msgs/msg/markers.hpp"
+#include "mocap_msgs/msg/marker.hpp"
+#include "mocap_msgs/msg/markers.hpp"
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2_ros/buffer_interface.h>

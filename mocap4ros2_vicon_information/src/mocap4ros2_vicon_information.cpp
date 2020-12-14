@@ -25,8 +25,8 @@
 #include <time.h>
 
 #include "rclcpp/rclcpp.hpp"
-#include "mocap4ros2_msgs/msg/marker.hpp"
-#include "mocap4ros2_msgs/msg/markers.hpp"
+#include "mocap_msgs/msg/marker.hpp"
+#include "mocap_msgs/msg/markers.hpp"
 
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
 #include <tf2_ros/buffer_interface.h>
@@ -52,10 +52,10 @@ public:
   Mocap4ros2ViconInformation()
   : Node("mocap4ros2_vicon_information")
   {
-      marker_sub_ = this->create_subscription<mocap4ros2_msgs::msg::Markers>("/vicon/markers", 10, std::bind(&Mocap4ros2ViconInformation::callback, this, _1));
+      marker_sub_ = this->create_subscription<mocap_msgs::msg::Markers>("/vicon/markers", 10, std::bind(&Mocap4ros2ViconInformation::callback, this, _1));
   }
   
-  void callback(const mocap4ros2_msgs::msg::Markers::SharedPtr msg) const
+  void callback(const mocap_msgs::msg::Markers::SharedPtr msg) const
   {
     RCLCPP_WARN(this->get_logger(), "MARKER: [%s, %d]. At time [sec: %d,  nanosec: %d]", msg->header.frame_id, msg->frame_number, msg->header.stamp.sec,msg->header.stamp.nanosec);
 
@@ -74,7 +74,7 @@ public:
 
 protected:
 
-    rclcpp::Subscription<mocap4ros2_msgs::msg::Markers>::SharedPtr marker_sub_;
+    rclcpp::Subscription<mocap_msgs::msg::Markers>::SharedPtr marker_sub_;
     int count;
 };
 

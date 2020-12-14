@@ -25,8 +25,8 @@
 #include <time.h>
 
 #include "rclcpp/rclcpp.hpp"
-#include "mocap4ros2_msgs/msg/marker.hpp"
-#include "mocap4ros2_msgs/msg/markers.hpp"
+#include "mocap_msgs/msg/marker.hpp"
+#include "mocap_msgs/msg/markers.hpp"
 
 using namespace std::chrono_literals;
 using std::placeholders::_1;
@@ -40,7 +40,7 @@ public:
   {
       tracked_frame_suffix_ = "vicon";
       test_num = 0;
-      marker_pub_ = create_publisher<mocap4ros2_msgs::msg::Markers>(tracked_frame_suffix_+"/markers", 100);
+      marker_pub_ = create_publisher<mocap_msgs::msg::Markers>(tracked_frame_suffix_+"/markers", 100);
   }
   
   int random_number(){
@@ -59,11 +59,11 @@ public:
   void step()
   {
 
-    mocap4ros2_msgs::msg::Markers markers_msg;
+    mocap_msgs::msg::Markers markers_msg;
     markers_msg.header.stamp = now();
     markers_msg.frame_number = test_num++;
 
-    mocap4ros2_msgs::msg::Marker new_marker;
+    mocap_msgs::msg::Marker new_marker;
     new_marker.translation.x = random_number();
     new_marker.translation.y = random_number();
     new_marker.translation.z = random_number();
@@ -77,7 +77,7 @@ public:
 
 protected:
 
-    rclcpp::Publisher<mocap4ros2_msgs::msg::Markers>::SharedPtr marker_pub_;
+    rclcpp::Publisher<mocap_msgs::msg::Markers>::SharedPtr marker_pub_;
     int test_num;
     std::string tracked_frame_suffix_; 
 };
